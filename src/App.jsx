@@ -1,24 +1,21 @@
-import axios from "./api/Axios";
 import { useEffect } from "react";
+import Nav from "./pages/Nav";
+import MainRoutes from "./routes/MainRoutes";
+import { useDispatch } from "react-redux";
+import { asyncCurrentUser } from "./store/actions/userAction";
 
 const App = () => {
 
- const getPro = async ()=>{
-   try {
-    const apiCall = await axios.get("/products");
-    console.log(apiCall);
-  } catch (error) {
-    console.log(error);
-  }
- };
+const dispatch = useDispatch();
 
   useEffect(()=>{
-    getPro();
+    dispatch(asyncCurrentUser());
   },[]);
 
   return (
     <>
-    <h1>Hellow App</h1>
+    <Nav/>
+    <MainRoutes/>
     </>
   )
 }
