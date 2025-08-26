@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {useForm} from "react-hook-form";
 import { NavLink } from "react-router-dom";
 import {useDispatch} from "react-redux";
@@ -14,6 +13,7 @@ const Register = () => {
 
     const submitHandler = (data)=>{
       data.id = nanoid()
+      data.admin = false;
       dispatch(asyncRegisterUser(data));
     }
 
