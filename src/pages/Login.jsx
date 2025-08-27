@@ -3,7 +3,6 @@ import {useForm} from "react-hook-form";
 import { NavLink } from "react-router-dom";
 import {useDispatch} from "react-redux";
 import { asyncLoginUser } from "../store/actions/userAction";
-import {toast} from "react-toastify";
 const Login = () => {
 
   const dispatch = useDispatch();
@@ -13,12 +12,8 @@ const Login = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const submitHandler = (data)=>{
-    const user = dispatch(asyncLoginUser(data));
-    if(user){
-    localStorage.setItem("userLogin", JSON.stringify(data));
-    toast.success("user login successfully");
-    }  
+  const submitHandler = async (data)=>{
+    dispatch(asyncLoginUser(data))
   }
 
   return (

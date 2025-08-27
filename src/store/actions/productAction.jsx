@@ -6,7 +6,6 @@ export const asyncProductStore = ()=> async(dispatch , state)=>{
     try{
         const storeproduct = await axios.get("/products");
         dispatch(loadproduct(storeproduct.data));
-        toast.success("Loaded data successfully");
     }
     catch(error){
         console.log("Got some error" , error);

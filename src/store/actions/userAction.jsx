@@ -5,7 +5,7 @@ export const asyncCurrentUser = () => async(dispatch,getState)=>{
     try{
         const curUser = JSON.parse(localStorage.getItem("userLogin"));
         if (curUser) dispatch(loaduser(curUser));
-        else console.log("user not found!!");
+        // else console.log("user not found!!");
     }
     catch(error){
         console.log(error);
@@ -15,7 +15,7 @@ export const asyncCurrentUser = () => async(dispatch,getState)=>{
 export const asyncLoginUser = (user) => async(dispatch,getState)=>{
     try{
         const {data} = await axios.get(`/users?email=${user.email}&password=${user.password}`);
-        console.log(data);
+        localStorage.setItem("userLogin" , JSON.stringify(data));
     }
     catch(error){
         console.log(error);
