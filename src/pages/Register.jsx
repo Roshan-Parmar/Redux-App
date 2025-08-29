@@ -21,35 +21,53 @@ const Register = () => {
 
   return (
     <>
-    <form onSubmit={handleSubmit(submitHandler)} className="flex flex-col mx-55 my-8">
-    <input
-    {...register('name')}
-    placeholder="write your name" 
-    type="name"
-    className="outline-none border-b-2 w-1/3"
-    />
-    <input
-    {...register('email')}
-    placeholder="write your email" 
+   <form
+  onSubmit={handleSubmit(submitHandler)}
+  className="flex flex-col flex-start bg-white shadow-lg rounded-2xl p-8 w-full max-w-lg"
+>
+  <h2 className="text-2xl font-semibold text-gray-800 mb-6">Register</h2>
+
+  <input
+    {...register("name")}
+    placeholder="Write your name"
+    type="text"
+    className="px-4 py-2 mb-4 w-full rounded-lg border border-gray-300 shadow-sm 
+    focus:outline-none focus:ring-2 focus:ring-indigo-400 transition-all"
+  />
+
+  <input
+    {...register("email")}
+    placeholder="Write your email"
     type="email"
-    className="outline-none border-b-2 w-1/3"
-    />
-    <input
-    {...register('password')}
-    placeholder="pas***rd" 
+    className="px-4 py-2 mb-4 w-full rounded-lg border border-gray-300 shadow-sm 
+    focus:outline-none focus:ring-2 focus:ring-indigo-400 transition-all"
+  />
+
+  <input
+    {...register("password")}
+    placeholder="pas***rd"
     type="password"
-    className="outline-none mt-5 border-b-2 w-1/3"
-    />
-    <div className="flex mt-5 items-center ">
-    <button className="p-2 cursor-pointer rounded-2xl hover:scale-110 
-    transition-all bg-blue-400 font-medium w-fit">
-      click me
+    className="px-4 py-2 mb-6 w-full rounded-lg border border-gray-300 shadow-sm 
+    focus:outline-none focus:ring-2 focus:ring-indigo-400 transition-all"
+  />
+
+  <div className="flex items-center justify-between">
+    <button
+      className="px-6 py-2 rounded-2xl bg-indigo-500 text-white font-medium shadow-md 
+      hover:bg-indigo-600 hover:scale-105 transition-transform duration-300"
+    >
+      Register
     </button>
-    <p>Already have an account 
-    <NavLink className= "text-blue-600" to="/login" > login?</NavLink>
+
+    <p className="text-sm text-gray-600">
+      Already have an account?{" "}
+      <NavLink className="text-indigo-600 font-medium hover:underline" to="/login">
+        login?
+      </NavLink>
     </p>
-    </div>
-    </form>
+  </div>
+</form>
+
     </>
   )
 }

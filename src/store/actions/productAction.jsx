@@ -23,3 +23,29 @@ export const asynCreateProduct = (product) => async(dispatch , state) =>{
         console.log(error);
     }
 }
+
+export const asyncUpdateProduct = (product , id) => async (dispatch , state) =>{
+    try{
+        const res = await axios.patch("/products/" + id , product);
+        if(res){
+            toast.success("Updated successfully");
+        }
+        dispatch(asyncProductStore());
+    }
+    catch(error){
+        console.log(error);
+    }
+}
+
+export const asyncDeleteProduct = (id) => async (dispatch , state) =>{
+    try{
+        const res = await axios.delete("/products/" + id);
+        if(res){
+            toast.success("Deleted successfully");
+        }
+        dispatch(asyncProductStore());
+    }
+    catch(error){
+        console.log(error);
+    }
+}
